@@ -1,0 +1,20 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: r1
+          uri: lb://ETUDIANT-SERVICE
+          predicates:
+            - Path=/etudiants/**
+        - id: r2
+          uri: lb://ETUDIANT-SERVICE
+          predicates:
+            - Path=/classrooms/**
+        - id: r3
+          uri: lb://COURSE-SERVICE
+          predicates:
+            - Path=/courses/**
+        - id: r4
+          uri: lb://EXAMEN-SERVICE
+          predicates:
+            - Path=/examens/**
